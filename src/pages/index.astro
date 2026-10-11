@@ -1,0 +1,423 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Maheet is a computer science student at UC San Diego interested in computer vision and robotics." />
+		<title>Maheet | CS Student at UCSD</title>
+	</head>
+	<body>
+		<!-- Decorative only: hidden from screen readers and unable to intercept clicks. -->
+		<div class="night-sky" aria-hidden="true"></div>
+		<header class="site-header">
+			<a class="site-name" href="/">Maheet C. Anand</a>
+			<nav aria-label="Main navigation">
+				<a href="#projects">Work</a>
+				<a href="/gallery">Gallery</a>
+				<a href="#about">About</a>
+				<a href="#contact">Contact</a>
+			</nav>
+		</header>
+		<main>
+			<section class="hero" aria-labelledby="intro-heading">
+				<p class="eyebrow">Maheet C. Anand / UC San Diego</p>
+				<h1 id="intro-heading">CS student at UCSD building things that see, move, and ship.</h1>
+				<p class="intro">Hi, I’m Maheet, a first-year computer science student at UC San Diego. I’m interested in helping machines understand the world around them, which drew me to computer vision and robotics. I’ve developed autonomous robot code, published a Chrome extension used by 450+ people, and am currently building a hand-gesture control app. I’m looking for internships where I can learn from a team and contribute to useful, practical projects.</p>
+				<div class="actions">
+					<a class="button primary" href="#projects">View Projects</a>
+					<a class="button" href="/resume">Resume</a>
+					<a class="button" href="#contact">Contact</a>
+				</div>
+			</section>
+
+			<section id="about" class="about" aria-labelledby="about-heading">
+				<h2 id="about-heading">About</h2>
+				<p>My interest in programming grew through trial and error. In seventh grade I spent months researching and building my first computer, and when I finally pressed the power button, nothing happened. The monitor wasn’t plugged in. That experience still reflects how I approach programming: testing ideas, learning from mistakes, and keeping a sense of humor along the way.</p>
+				<p>That mindset carried into FTC robotics. Writing autonomous code showed me the limits of a robot that only follows fixed instructions, and sparked my interest in computer vision: helping a machine interpret what it sees and respond to its surroundings. Now at UCSD, I’m exploring these interests further and looking for opportunities to apply them to new projects.</p>
+			</section>
+
+			<section id="projects" aria-labelledby="projects-heading">
+				<h2 id="projects-heading">Projects and Experience</h2>
+				<article class="project project-featured" aria-labelledby="focusbuddy-heading">
+					<div class="project-details">
+						<h3 id="focusbuddy-heading">FocusBuddy</h3>
+						<p class="project-meta">Chrome extension · JavaScript, HTML, CSS</p>
+						<p>A Chrome extension I built to make studying less of a fight. It’s live on the Chrome Web Store and has passed 450 downloads.</p>
+						<ul>
+							<li>Set your own study and break lengths, and choose how many cycles to run.</li>
+							<li>Pick the sites that should trigger a distraction warning during a session.</li>
+							<li>Gentle alerts nudge you back on track without locking you out of your browser.</li>
+						</ul>
+						<a class="button primary" href="https://chromewebstore.google.com/detail/focusbuddy/lddbcheippbipnkfcckflommcjkpeghg" target="_blank" rel="noopener noreferrer">Install from Chrome Web Store</a>
+					</div>
+					<figure>
+						<img src="/focusbuddy.png" alt="FocusBuddy interface with study and break timers, cycle settings, and a list of websites for distraction warnings." width="492" height="756" loading="lazy" />
+						<figcaption>Pick your session settings and the sites that should trigger a warning.</figcaption>
+					</figure>
+				</article>
+
+				<article class="project" aria-labelledby="robotics-heading">
+					<h3 id="robotics-heading">FTC Robotics — Team 15305</h3>
+					<p class="project-meta">Cerritos High School · Software &amp; leadership · Junior and senior years</p>
+					<p>I worked on how our robot moves, thinks, and sees, connecting the code to the hardware so it could navigate on its own.</p>
+					<ul>
+						<li>Used a Limelight AI camera to recognize AprilTags and color markers, helping the robot find its way during autonomous.</li>
+						<li>Debugged the tricky spots where software meets hardware.</li>
+						<li>Documented my work so teammates could pick up the code.</li>
+					</ul>
+					<p>In junior year, I pitched and helped build a new hanging system that raised our average score by about 15 points per match. In senior year, I moved to the Limelight AI camera.</p>
+					<figure>
+						<img src="/robot1.jpeg" alt="Team 15305 robot with its arm, blue number plate, and yellow wheels." width="1201" height="1181" loading="lazy" />
+						<figcaption>FTC Robotics — Team 15305.</figcaption>
+					</figure>
+					<a class="button" href="/gallery#experience-heading">More photos and experience</a>
+				</article>
+
+				<article class="project" aria-labelledby="metro-heading">
+					<h3 id="metro-heading">LA Metro — TCAP Internship</h3>
+					<p class="project-meta">Summer 2025 · Teamwork &amp; 3D modeling</p>
+					<p>I worked with a 20-person team to pitch a World Cup advertising concept for LA Metro. I suggested going beyond slides with a 3D model, then led a five-person group to build it. Our project placed first among 10+ teams.</p>
+					<a class="button" href="/gallery#experience-heading">See the model and award</a>
+				</article>
+
+				<article class="project" aria-labelledby="cv-heading">
+					<h3 id="cv-heading">Hand-Gesture Control</h3>
+					<p class="project-meta">Coming soon · Computer vision / OpenCV</p>
+					<p>I’m building an app that turns hand gestures into macro keys, so a quick finger gesture can trigger a shortcut. My first milestone is using my laptop’s webcam to count how many fingers someone is holding up.</p>
+				</article>
+			</section>
+
+			<section id="contact" aria-labelledby="contact-heading">
+				<h2 id="contact-heading">Contact</h2>
+				<p>Looking for an intern, a teammate, or just someone to talk robots and computer vision with? Send me a message.</p>
+				<address>
+					<p>Email: <a href="mailto:anandmaheet@gmail.com">anandmaheet@gmail.com</a></p>
+					<p>Phone: <a href="tel:+15625265296">(562) 526-5296</a></p>
+					<p>San Diego, CA</p>
+				</address>
+			</section>
+		</main>
+	</body>
+</html>
+
+<style>
+	/* Astro scopes these styles to this page; :global reaches the document elements. */
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	:global(body) {
+		position: relative;
+		color-scheme: dark;
+		margin: 0;
+		/* Gradually brighten toward the bottom to draw the eye down the page. */
+		background: linear-gradient(to bottom, #0e1118 0%, #111c2e 35%, #152640 70%, #203b68 100%);
+		min-height: 100vh;
+		color: #e3e9f3;
+		font-family: system-ui, sans-serif;
+		line-height: 1.7;
+	}
+
+	/* Keep the content above the decorative sky layer. */
+	main {
+		position: relative;
+		z-index: 1;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	/* Decorations stay at the top and fade out before the lower sections. */
+	.night-sky {
+		position: absolute;
+		inset: 0 0 auto;
+		height: 700px;
+		pointer-events: none;
+		overflow: hidden;
+		/* The mask makes the stars disappear gradually rather than end abruptly. */
+		mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
+		background:
+			radial-gradient(circle at 8% 18%, rgb(210 225 255 / 24.200000000000003%) 0.8px, transparent 1.4px),
+			radial-gradient(circle at 24% 9%, rgb(210 225 255 / 17.6%) 0.7px, transparent 1.3px),
+			radial-gradient(circle at 43% 32%, rgb(210 225 255 / 19.8%) 0.8px, transparent 1.4px),
+			radial-gradient(circle at 61% 14%, rgb(210 225 255 / 24.200000000000003%) 0.8px, transparent 1.4px),
+			radial-gradient(circle at 79% 28%, rgb(210 225 255 / 19.8%) 0.7px, transparent 1.3px),
+			radial-gradient(circle at 93% 12%, rgb(210 225 255 / 22%) 0.8px, transparent 1.4px),
+			radial-gradient(circle at 14% 54%, rgb(210 225 255 / 17.6%) 0.7px, transparent 1.3px),
+			radial-gradient(circle at 86% 61%, rgb(210 225 255 / 17.6%) 0.8px, transparent 1.4px);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.night-sky::after {
+			content: '';
+			position: absolute;
+			top: 110px;
+			left: 60%;
+			width: 70px;
+			height: 1px;
+			background: linear-gradient(to right, transparent, #c5d8fa);
+			opacity: 0;
+			animation: shooting-star 11.25s linear 4s infinite;
+		}
+	}
+
+	/* The star travels briefly, then stays invisible for the rest of the cycle. */
+	@keyframes shooting-star {
+		0% { opacity: 0; transform: translate(0, 0) rotate(32deg); }
+		2% { opacity: 0.2; }
+		7% { opacity: 0; transform: translate(220px, 140px) rotate(32deg); }
+		100% { opacity: 0; transform: translate(220px, 140px) rotate(32deg); }
+	}
+
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: rgba(17, 27, 50, 0.95);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 16px;
+		border-bottom: 1px solid #0560fc;
+	}
+
+	.site-header a {
+		color: #a4b9de;
+		text-decoration: none;
+	}
+
+	.site-header .site-name {
+		color: #e3e9f3;
+		font-weight: 700;
+	}
+
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+
+	.site-header a:hover {
+		text-decoration: underline;
+		text-underline-offset: 5px;
+	}
+
+	.site-header a:focus-visible {
+		outline: 3px solid #a4b9de;
+		outline-offset: 4px;
+	}
+
+	/* Leave room for the sticky header when a navigation link scrolls to a section. */
+	section {
+		scroll-margin-top: 150px;
+		padding: 56px 0;
+		border-bottom: 1px solid #293750;
+	}
+
+	.hero {
+		padding-top: 96px;
+	}
+
+	.eyebrow {
+		color: #a4b9de;
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		max-width: 850px;
+		margin: 20px 0 28px;
+		font-size: clamp(2.25rem, 6vw, 4rem);
+		line-height: 1.12;
+		letter-spacing: -0.04em;
+	}
+
+	h2 {
+		margin: 0 0 20px;
+		font-size: 1.75rem;
+		line-height: 1.3;
+	}
+
+	section > p:not(.eyebrow) {
+		max-width: 720px;
+		font-size: 1.1rem;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 32px;
+	}
+
+	.button {
+		transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+		display: inline-block;
+		padding: 12px 20px;
+		border: 1px solid #a4b9de;
+		border-radius: 6px;
+		background: #141e30;
+		color: #e3e9f3;
+		font: inherit;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.primary {
+		background: #203b68;
+		color: #fff;
+	}
+
+	.primary:hover {
+		background: #2c4c80;
+	}
+
+	.button:focus-visible {
+		outline: 3px solid #a4b9de;
+		outline-offset: 4px;
+	}
+
+	address {
+		font-style: normal;
+	}
+
+	.project {
+		margin: 24px 0;
+		padding: 24px;
+		border: 1px solid #293750;
+		border-radius: 12px;
+		background: #141e30;
+		transition: transform 200ms ease, box-shadow 200ms ease;
+	}
+
+	.project + .project {
+		border-top: 1px solid #293750;
+	}
+
+	/* Start with one column; add a screenshot column on wider screens. */
+	.project-featured {
+		display: grid;
+		gap: 32px;
+		align-items: start;
+	}
+
+	.project-details {
+		min-width: 0;
+	}
+
+	.project-featured figure {
+		margin: 0;
+		max-width: 320px;
+		justify-self: center;
+	}
+
+	@media (min-width: 800px) {
+		.project-featured {
+			grid-template-columns: minmax(0, 1fr) 280px;
+		}
+	}
+
+	.project h3 {
+		margin: 0;
+		font-size: 1.4rem;
+	}
+
+	.project-meta, figcaption {
+		color: #a4b9de;
+		font-size: 0.9rem;
+	}
+
+	.project p, .project ul {
+		max-width: 720px;
+	}
+
+	figure {
+		margin: 24px 0;
+	}
+
+	figure img {
+		display: block;
+		width: 100%;
+		max-width: 320px;
+		height: auto;
+		border: 1px solid #293750;
+		border-radius: 6px;
+	}
+
+	figcaption {
+		margin-top: 8px;
+	}
+
+	address a {
+		color: #a4b9de;
+		text-underline-offset: 4px;
+		overflow-wrap: anywhere;
+	}
+
+	/* Animate the hero content in sequence when the page loads. */
+	@keyframes rise-in {
+		from {
+			opacity: 0;
+			transform: translateY(14px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		:global(html) {
+			scroll-behavior: smooth;
+		}
+
+		.hero > * {
+			animation: rise-in 600ms ease-out backwards;
+		}
+
+		.hero h1 { animation-delay: 80ms; }
+		.hero .intro { animation-delay: 160ms; }
+		.hero .actions { animation-delay: 240ms; }
+	}
+
+	@media (hover: hover) {
+		.button:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 5px 12px rgb(0 0 0 / 35%);
+		}
+
+		.project:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 24px rgb(0 0 0 / 30%);
+		}
+	}
+
+	/* Keep the same appearance without movement when requested. */
+	@media (prefers-reduced-motion: reduce) {
+		.button, .project {
+			transition: none;
+		}
+
+		.button:hover, .project:hover {
+			transform: none;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.hero {
+			padding-top: 56px;
+		}
+
+		section {
+			padding-bottom: 40px;
+		}
+	}
+</style>

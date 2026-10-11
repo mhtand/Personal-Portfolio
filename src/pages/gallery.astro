@@ -1,0 +1,328 @@
+---
+// Astro frontmatter runs at build time, so these lists become HTML without browser JavaScript.
+// Edit the content here; the template below renders one card per entry.
+const decks = ['Experience', 'Projects'];
+// Card colors follow the order of entries in each deck.
+const colors = ['navy', 'purple', 'teal'];
+const projects = [
+	{
+		title: 'FocusBuddy',
+		technologies: 'JavaScript · HTML · CSS',
+		description: 'I taught myself JavaScript and used it to build FocusBuddy, a Chrome extension for structured study sessions. You set your own study and break lengths, choose how many cycles to run, and pick the sites that should trigger a distraction warning. The alerts are lightweight on purpose, so students stay focused without being locked out of their browser. It’s live on the Chrome Web Store and has passed 450 downloads.',
+	},
+	{
+		title: 'Hand-Gesture Control — Coming soon',
+		technologies: 'Computer vision · OpenCV',
+		description: 'I’m building an app that turns hand gestures into macro keys, so a quick finger gesture can trigger a shortcut. It’s my next step in computer vision after robotics, built with OpenCV. The first milestone is using my laptop’s webcam to count how many fingers someone is holding up. Progress photos and a demo will follow as I build it.',
+	},
+];
+const experiences = [
+	{
+		title: 'FTC Robotics — Team 15305',
+		description: 'I spent my high school years on FTC robotics writing code for robots that have to drive themselves. Autonomous programming humbled me fast: a robot follows instructions exactly, so tiny mistakes pile up. I spent hours tuning, testing, and debugging, and I documented everything so teammates could take over the code. In junior year, I noticed our hanging system was slow and unreliable. It wasn’t my assignment, but I pitched a fix and helped build it, and it raised our average score by about 15 points per match. In senior year, I set up a Limelight AI camera that recognized AprilTags and color markers so the robot could navigate more on its own. That’s the moment computer vision hooked me.',
+		photos: [
+			{ src: '/robot1.jpeg', alt: 'Team 15305 robot with its arm, blue number plate, and yellow wheels.', caption: 'Team 15305 robot.' },
+			{ src: '/robot2.jpeg', alt: 'Close-up of Team 15305 robot mechanisms and frame.', caption: 'A closer look at the robot.' },
+		],
+	},
+	{
+		title: 'LA Metro — TCAP Internship',
+		description: 'In summer 2025, I joined LA Metro’s TCAP internship and worked with a 20-person team on a World Cup advertising concept. Most teams planned to show their designs on slides. I suggested building a 3D model instead, and when nobody volunteered to lead it, I did. I put together a five-person group, worked with our designers, and arranged 3D printing through my robotics teacher. When he couldn’t make it on print day, I tracked down another teacher to help us reschedule, and we printed the next day. The judges said the model helped them understand our idea, and our project placed first among 10+ teams.',
+		photos: [
+			{ src: '/metro1.jpeg', alt: 'Blue 3D-printed bus shelter model with a patterned back wall.', caption: 'The finished 3D-printed model.' },
+			{ src: '/metro2.jpeg', alt: 'Framed TCAP first-place project award for a FIFA World Cup concept.', caption: 'Our first-place project award.' },
+			{ src: '/metro3.png', alt: '3D printer display preparing to print the bus shelter model.', caption: 'Preparing the model for printing.' },
+		],
+	},
+	{
+		title: 'Robotics Summer Camp',
+		description: 'In summer 2025, I co-founded a robotics camp at my high school and helped market it. I taught 20 students ages 10–13 robotics fundamentals through hands-on activities with small robots. Enrollment was strong enough that the camp is continuing next year.',
+		photos: [{ src: '/robotSumCamp.jpg', alt: 'Small wheeled robots and controllers on an outdoor table during robotics camp.', caption: 'Hands-on robotics activities at camp.' }],
+	},
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Maheet's experience and project gallery." />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Gallery | Maheet C. Anand</title>
+	</head>
+	<body>
+		<main>
+			<a href="/">&larr; Back to home</a>
+			<h1>Gallery</h1>
+			<p>The photos and stories behind my work: robots, a 3D-printed model, a robotics camp, and a couple of things I built from scratch.</p>
+			<p class="hint">Scroll over a deck, swipe sideways, or use the arrows to move between cards.</p>
+			{decks.map((deck) => (
+				<section class="deck" aria-labelledby={`${deck.toLowerCase()}-heading`}>
+					<div class="deck-header">
+						<h2 id={`${deck.toLowerCase()}-heading`}>{deck}</h2>
+						<!-- Reveal the buttons only after the script attaches their behavior. -->
+						<div class="controls" hidden>
+							<button type="button" data-direction="-1" aria-label={`Previous ${deck.toLowerCase()} card`}>←</button>
+							<span class="counter" aria-live="polite" aria-atomic="true">1 / {deck === 'Experience' ? experiences.length : projects.length}</span>
+							<button type="button" data-direction="1" aria-label={`Next ${deck.toLowerCase()} card`}>→</button>
+						</div>
+					</div>
+					<div class="track" tabindex="0" role="region" aria-label={`${deck} cards`}>
+						{(deck === 'Experience' ? experiences : projects).map((_, index) => (
+							<article class={`card ${colors[index]}`}>
+								<p class="card-number">{deck} / 0{index + 1}</p>
+								{deck === 'Experience' ? (
+									<>
+										<h3>{experiences[index].title}</h3>
+										<p>{experiences[index].description}</p>
+										<div class="photos">
+											{experiences[index].photos.map((photo) => (
+												<figure>
+													<a href={photo.src} target="_blank" rel="noopener noreferrer" aria-label={`Open full photo: ${photo.caption}`}>
+														<img src={photo.src} alt={photo.alt} loading="lazy" />
+													</a>
+													<figcaption>{photo.caption}</figcaption>
+												</figure>
+											))}
+										</div>
+									</>
+								) : (
+									<>
+										<h3>{projects[index].title}</h3>
+										<p class="technologies">{projects[index].technologies}</p>
+										<p>{projects[index].description}</p>
+										{index === 0 && (
+											<>
+												<div class="photos">
+													<figure>
+														<a href="/focusbuddy.png" target="_blank" rel="noopener noreferrer">
+															<img src="/focusbuddy.png" alt="FocusBuddy study timer with break, cycle, and distraction-warning settings." loading="lazy" />
+														</a>
+														<figcaption>FocusBuddy's session settings.</figcaption>
+													</figure>
+												</div>
+												<a href="https://chromewebstore.google.com/detail/focusbuddy/lddbcheippbipnkfcckflommcjkpeghg" target="_blank" rel="noopener noreferrer">Install from Chrome Web Store ↗</a>
+											</>
+										)}
+									</>
+								)}
+							</article>
+						))}
+					</div>
+				</section>
+			))}
+		</main>
+	</body>
+</html>
+
+<script>
+	// Each deck works independently. Native scrolling also supports touch.
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+	// Prevent a single wheel gesture from advancing through several cards at once.
+	const wheelCooldownMs = 650;
+
+	document.querySelectorAll<HTMLElement>('.deck').forEach((deck) => {
+		// The ! tells TypeScript these elements exist in the template above.
+		const track = deck.querySelector<HTMLElement>('.track')!;
+		const cards = Array.from(track.querySelectorAll<HTMLElement>('.card'));
+		const buttons = Array.from(deck.querySelectorAll<HTMLButtonElement>('button'));
+		const counter = deck.querySelector<HTMLElement>('.counter')!;
+		deck.querySelector<HTMLElement>('.controls')!.hidden = false;
+
+		// Measure from the first card, since offsetLeft can include the deck's page position.
+		const cardPosition = (index: number) => cards[index].offsetLeft - cards[0].offsetLeft;
+		const currentIndex = () => cards.reduce((closest, _, index) => {
+			const distance = Math.abs(cardPosition(index) - track.scrollLeft);
+			const closestDistance = Math.abs(cardPosition(closest) - track.scrollLeft);
+			return distance < closestDistance ? index : closest;
+		}, 0);
+
+		const move = (direction: number) => {
+			// Clamp the destination so it cannot go before the first or after the last card.
+			const index = Math.max(0, Math.min(cards.length - 1, currentIndex() + direction));
+			track.scrollTo({
+				left: cardPosition(index),
+				behavior: reducedMotion.matches ? 'instant' : 'smooth',
+			});
+		};
+
+		// Keep the counter and button states in sync, including after a touch swipe.
+		const update = () => {
+			const index = currentIndex();
+			counter.textContent = `${index + 1} / ${cards.length}`;
+			buttons[0].disabled = index === 0;
+			buttons[1].disabled = index === cards.length - 1;
+		};
+
+		buttons.forEach((button) => {
+			button.addEventListener('click', () => move(Number(button.dataset.direction)));
+		});
+		track.addEventListener('scroll', update, { passive: true });
+		track.addEventListener('keydown', (event) => {
+			// Handle arrows only when the track itself has focus, not a link inside a card.
+			if (event.target !== track || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+			event.preventDefault();
+			move(event.key === 'ArrowRight' ? 1 : -1);
+		});
+
+		let lastWheel = 0;
+		track.addEventListener('wheel', (event) => {
+			// Horizontal trackpad scrolling remains native; vertical wheel steps cards.
+			if (event.ctrlKey || Math.abs(event.deltaX) >= Math.abs(event.deltaY) || event.deltaY === 0) return;
+			const direction = Math.sign(event.deltaY);
+			const index = currentIndex();
+			// At deck boundaries allow normal page scrolling.
+			if ((direction < 0 && index === 0) || (direction > 0 && index === cards.length - 1)) return;
+			event.preventDefault();
+			if (performance.now() - lastWheel < wheelCooldownMs) return;
+			lastWheel = performance.now();
+			move(direction);
+		}, { passive: false }); // Required because this handler sometimes prevents page scrolling.
+
+		// Set the initial button states before the user interacts with the deck.
+		update();
+	});
+</script>
+
+<style>
+	:global(*) {
+		box-sizing: border-box;
+	}
+	:global(body) {
+		margin: 0;
+		min-height: 100vh;
+		color-scheme: dark;
+		background: linear-gradient(135deg, #0e1118, #152640, #0e1118);
+		color: #e3e9f3;
+		font-family: system-ui, sans-serif;
+		line-height: 1.7;
+	}
+	main {
+		max-width: 960px;
+		margin: auto;
+		padding: 40px 24px 72px;
+	}
+	a {
+		color: #a4b9de;
+	}
+	h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		margin: 24px 0 8px;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.75rem;
+	}
+	.hint {
+		color: #a4b9de;
+	}
+	.deck {
+		margin-top: 32px;
+	}
+	.deck-header, .controls {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+	.deck-header {
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-bottom: 16px;
+	}
+	.controls[hidden] {
+		display: none;
+	}
+	button {
+		min-width: 44px;
+		min-height: 44px;
+		border: 1px solid #a4b9de;
+		border-radius: 8px;
+		background: #203b68;
+		color: #fff;
+		font: inherit;
+		cursor: pointer;
+	}
+	button:disabled {
+		opacity: 0.4;
+		cursor: default;
+	}
+	.counter {
+		font-variant-numeric: tabular-nums;
+	}
+	/* Native scrolling handles touch; scroll snapping settles on a whole card. */
+	.track {
+		display: flex;
+		gap: 24px;
+		overflow-x: auto;
+		align-items: flex-start;
+		scroll-snap-type: x mandatory;
+		padding-bottom: 16px;
+		border-radius: 16px;
+	}
+	.card {
+		flex: 0 0 100%;
+		min-width: 0;
+		min-height: 220px;
+		padding: 20px;
+		border: 1px solid rgb(255 255 255 / 20%);
+		border-radius: 16px;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.navy {
+		background: linear-gradient(135deg, #203b68, #15243d);
+	}
+	.purple {
+		background: linear-gradient(135deg, #493361, #281f3c);
+	}
+	.teal {
+		background: linear-gradient(135deg, #1c5058, #142f39);
+	}
+	.card-number {
+		font-size: 0.85rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+	h3 {
+		font-size: clamp(1.3rem, 3vw, 1.75rem);
+		margin: 4px 0;
+	}
+	.card p {
+		max-width: 720px;
+		margin: 8px 0;
+	}
+	.technologies {
+		color: #a4b9de;
+		font-size: 0.9rem;
+	}
+	/* Fit as many photo columns as available space allows, including narrow screens. */
+	.photos {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
+		gap: 12px;
+		margin: 16px 0;
+	}
+	figure {
+		margin: 0;
+		min-width: 0;
+	}
+	.photos img {
+		display: block;
+		width: 100%;
+		height: 150px;
+		object-fit: contain;
+		background: #0e1118;
+		border-radius: 8px;
+	}
+	figcaption {
+		margin-top: 8px;
+		font-size: 0.85rem;
+	}
+	a:focus-visible, button:focus-visible, .track:focus-visible {
+		outline: 3px solid #a4b9de;
+		outline-offset: 4px;
+	}
+</style>
